@@ -42,7 +42,7 @@ Table of Contents:
 
 01:11 - **Jacob Groundwater**: Yeah, no problem!
 
-01:12 - **Daniel Shaw**: So, today's sponsors are [Clock](http://clock.co.uk), [&yet](http://andyet.com), and [Modulus](http://modulus.io). And I'm Dan Shaw, I run The Node Firm. Let's go around the horn and let everyone introduce themselves before we get into dockering all the things. Mike, you want to kick off the blurbs?
+01:12 - **Daniel Shaw**: So, today's sponsors are [Clock](http://clock.co.uk), [&yet](http://andyet.com), and [Modulus](http://modulus.io). And I'm Dan Shaw, I run [The Node Firm](http://thenodefirm.com/). Let's go around the horn and let everyone introduce themselves before we get into dockering all the things. Mike, you want to kick off the blurbs?
 
 01:32 - **Mike Brevoort**: I'm Mike Brevoort. I work at Pearson. Working to innovate and create and deploy our next-gen products globally. We've been using node for a little over three years there. 
 
