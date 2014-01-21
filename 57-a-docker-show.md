@@ -308,6 +308,42 @@ So `docker ps` is "show all of the historical containers" and if you're new to d
 
 1:12:07 - **Daniel Shaw**: Cool. Well, we'll wrap it up there. Let's do some quick plugs. Reminder plug from Mike: join Mike at Pearson. There's the Denver area, but Pearson's around the world. They're doing some really great stuff with node.js. So I highly recommend dropping them a note. And DenverJS. Mr. Groundwater, why don't you go ahead?
 
+1:12:25 - **Jacob Groundwater**: I would love it if people would give the NodeOS docker image a try, even if it's just five minutes and then you turn your head in disbelief! Should I say the URL or you going to put that in the show notes?
+
+1:12:37 - **Daniel Shaw**: It'll be in the show notes.
+
+1:12:39 - **Jacob Groundwater**: So I wrote a little blog post on what to do you don't pull the image and then just stare at it. 
+
+1:12:44 - **Daniel Shaw**: So you can go to node-os.com 
+
+1:12:55 - **Jacob Groundwater**: From there you can have just a couple blog posts. I'd love it if people just tried it. I would be thrilled and ecstatic if someone else out there did a docker file and put some different commands in and pushed to the registry. Tweet me back on that. That would be amazing.
+
+There other thing I would like to say is I've been checking out things like (gittip)[https://www.gittip.com/]. And I do not need this, but there's a lot of devs out there who definitely do a lot for open source, and it seems like a cool way to give back to them. There may be many funding solutions. I don't want to get into the argument about which one is best. But if you are working at a company getting paid well, there's a lot of open source devs who put a lot of work into stuff. I am leveraging and other people are leveraging. So let's see if there's a cool open way we can get funding to these guys. So gittip, or whichever one you want to try. I would just say go for it. 
+
+1:13:52 - **Daniel Shaw**: So if you don't know who to give to. You want to contribute something and don't know. Why don't you just give to Jacob or myself, even, and I bet jacob does the same thing with whatever comes in through gittip. I just share it back out. I shove money over to substack or whatever.
+
+1:14:17 - **Jacob Groundwater**: I don't have any gittips coming in now, but I guarantee if anyone gives me a gittip I'll send it to a good dev. 
+
+1:14:24 - **Daniel Shaw**: Right! That's what I do. So if you don't know who to give to, both Jacob and I do that with our gittip: we send it downstream to those who need it and those who merit it. So go in, explore gittip, it's also a great way to get to know some really great developers who are doing wonderful things for open source. 
+
+Did you say Niall or Nuno?
+
+[Laughter]
+
+Niall-o, it's your turn.
+
+Niallo-o, alright! I'm just going to go with it here. So a quick plug for myself: I'm one of the founders of frozenridge.co. We do node.js, MongoDB, JavaScript software development and training as well. So if you need help with node, docker, continuous deployment, MongoDB, anything like that, get in touch and we'd be more than happy to help. And I'm just going to plug my open source project, StriderCD.com, which is an open source continuous deployment platform. It's very modular, it's all built on npm and node. StriderCD.com. Check it out. I'd love to see your contribution. So thanks, that's my plug.
+
+1:15:49 - **Daniel Shaw**: Awesome. Thank you, Niall. Nuno?
+
+1:15:51 - **Nuno Job**: Cool. I didn't really have a plug. So I tried to make one. One thing I've been seeing in a lot of node.js applications is that you build your node.js app, it's perfect, it's awesome, you don't have segmentation faults because you have the event loop. So everything it good. Until your application becomes really big, until your application reaches critical mass. When that happens, you start having errors where you really don't know what's happening. You start finding small memory leaks. And you start to heave these really-hard-to-debug issues in production. Brian Cantrell from Joyent talks about this all the time. Even Daniel has been covering this quite extensively.
+
+Now, I believe the reason why that is happening is people are taking the wrong approach to doing node programs. And there is the need to have something like DTrace running on every single commit you do on your project. So you can monitor the changes that are happening to your performance every single time you make a code change you know what the impact is for your application. Now, this is not public but I know that [Pedro Teixeira](https://twitter.com/pgte) created something called nTrace that does exactly this. Every time you do a commit it runs a bunch of benchmarking things: it runs DTrace, it creates a flame graph for you. It allows to see what happens to your program as you change the code. If you want access, if you have a really big deployment of node, and you want to have access to this, or if you have an open source repo that requires extensive performance measurements and monitoring for every single commit. For instance, [node-mysql](https://github.com/felixge/node-mysql) by [Felix Geisendörfer](http://felixge.de/) would be an example. Get in touch with me and I can try to get you set up. Because we're building the product so we can improve it and you can probably get a lot of value out of it.
+
+1:17:45 - **Daniel Shaw**: Nuno, add something that people can link to because if you search for "ntrace" the first entry is like "high-performance tracing for .NET"
+
+1:17:56 - **Nuno Job**: Oh, there we go! 
+
 ## Plugs
 
 WIP
