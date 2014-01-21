@@ -182,6 +182,8 @@ But the main thing is I just wanted to have a pipeline where I could make a chan
 
 39:04 - **Daniel Shaw**: That Nuno says "no-no."
 
+[Laughter]
+
 ## Orchestration and Docker Linking
 
 39:08 - **Nuno Job**: Yeah, that's my type of humor. So one thing I think is very exciting about docker -- that is really not very well understood yet -- is the linking part that Niall was speaking about. And the reason why it's interesting is, as Niall said, the way we deploy Strider right now is it puts Mongo inside the container, it puts all the dependencies inside the container, and is like "voila, here's a product." But there's limitations to this, of course, because as we know from npm, it's really good to have something that manages dependencies really, really well. There are a bunch of legacy systems -- I'm probably going to be the first person to call Puppet and Chef legacy -- Niall is not laughing, so it's okay.
@@ -246,7 +248,7 @@ So what you can do with dokku. Which is very convenient, especially if you're ne
 
 An image is an actual disk image. It generally doesn't change but you can boot a system off of an image. And generally when you run docker instances you run this particular image. A container is an image after it has been run. So when you run that image, if you were to log in for example, run bash touch a bunch of files, make a dir, and curl something, all those changes that you made are in the container. And if you want to distribute those change, you have to snapshot it to an image. When you snapshot it, and maybe this goes along with images, you have to give them a name, and that name is the repository. And that's the thing you can push and pull to the docker index. You're pushing and pulling repositories. And then there's also a concept of tags, which is a dimension along the repositories, kind of like a version number, but I seem to have kind of messed it up, I'm not sure of the best way to do that stuff, it might be very simple but I'm messing it up. Maybe someone else can fill it in there. 
 
-1:00:55 - **Daniel Shaw**: You almost, word for word, nailed a question we had from Twitter, in the NodeUp contribute repo from ---, which is basically that. What do all these things mean? Can you back and forth between them? 
+1:00:55 - **Daniel Shaw**: You almost, word for word, nailed a question we had from Twitter, in the NodeUp contribute repo from [user name], which is basically that. What do all these things mean? Can you back and forth between them? 
 
 1:01:11 - **Niall O'Higgins**: Yeah, just to make things even more confusing, Jacob, I think now containers can also have names. And of course then you have container IDs and image IDs, which people may also encounter especially when you are changing tags associated with images and containers. So I definitely would agree that the terminology is confusing and the mental model is a little bit confusing, with that distinction between container and image. I'm definitely guilty of kind of using "container" and "image" interchangeably, which really annoys the docker folks if you go into their irc channel and start doing that -- calling images containers and containers images.
 
@@ -260,14 +262,51 @@ So `docker ps` is "show all of the historical containers" and if you're new to d
 
 1:05:40 - **Nuno Job**: Do you think that garbage collection would be a good idea? Because normally what I do is just whenever I'm finished with the container I do a `docker ps | xargs` kind of thing to clean it up. But I would be kind of wary of an automated garbage collector.
 
-1:05:52 - **Niall O'Higgins**: Yeah, that's what I mean I support you have to do your own manual garbage collection with that. But I think maybe being able to set some sort of policy there, I think that the docker tool itself could help you out with that. Maybe you could set a disk-space policy or a time-based retention policy. I don't know exactly, but I think a little bit more would be helpful. 
+1:05:52 - **Niall O'Higgins**: Yeah, that's what I mean, in that I suppose you have to do your own manual garbage collection with that. But I think maybe being able to set some sort of policy there, I think that the docker tool itself could help you out with that. Maybe you could set a disk-space policy or a time-based retention policy. I don't know exactly, but I think a little bit more would be helpful. 
 
 1:06:16 - **Jacob Groundwater**: So one of the tips I'm gonna give everyone is the `-q` option is great. Because you can go `sudo docker images` or `sudo docker ps -a -q` and it will just give you a list of the IDs with no headers, no extra information and you can just pass that directly to the `sudo docker rmi` or `sudo docker rm`, which will remove the containers and images. So when you're just playing around and you notice that you're getting a low disk space warning or your virtual machine has come to a halt, that's a quick way to nuke everything quickly. I know it's probably not what you'd want to do in production, but in my use case where I'm generating a lot of ephemeral containers -- and lots of them -- it's really handy. `-q`, remember that one. 
 
 1:07:09 - **Nuno Job**: Another thing to help people with this same question is actually the blog post that Daniel referred to. Which is called -- I totally forgot -- something docker couchdb node.js, of course. You can Google for getting stared with docker as a node.js and couchdb programmer. It's actually pretty extensive; it will take you like 20 minutes to do this. But the reason I wrote it was I've worked in infrastructure for a while and I've even built stuff like package cloud, which is an abstraction to try to normalize the naming conventions in the cloud industry. And I can tell you, Jesus Christ, you need to have a dictionary of your own! It's very hard to keep up and there's no amount of talking that's going to make it for you. So the only way you can learn is by doing. If you do this blog post for 20 minutes you will understand exactly how docker works, and even if you don't know the words you will have a clear understanding. I even believe that's how Niall started. I'm not sure, is it?
 
-1:08:18 - **Niall O'Higgins**: I don't think it was through your blog post directly, Nuno. Though I did see that. But I mean, yeah, just playing around with this stuff is the way to go. 
+1:08:18 - **Niall O'Higgins**: I don't think it was through your blog post directly, Nuno. Though I did see that. But I mean, yeah, just playing around with this stuff is the way to go. Definitely just start running stuff and seeing what you can do. 
 
+1:08:30 - **Nuno Job**: Cool, so I'm totally wrong!
+
+[Laughter]
+
+1:08:35 - **Nuno Job**: I know it's someone, maybe it wasn't you. Sorry.
+
+1:08:41 - **Daniel Shaw**: Awesome, awesome. Okay, so we covered Jim's question. So any closing thoughts, guys? Let's go around the horn, and say six months or twelve months from now, is it all docker or is it the thing that we've replaced docker with? I think it's all docker. 
+
+1:09:05 - **Nuno Job**: I would like to start, Daniel, that in six months I hope you are winning the selfie olympics . Not good enough! Not good enough! In six months, that's my expectation. I don't know about docker and SmortOS, etcetera.
+
+[Laughter]
+
+1:09:22 - **Daniel Shaw**: Aim high, alright! Winning the Internet.
+
+1:09:26 - **Jacob Groundwater**: I think it won't be raw docker, I think there will be a layer of indirection right on top of docker. Because all problems in CS can be solved by another layer of indirection. 
+
+[Laughter]
+
+1:09:35 - **Niall O'Higgins**: Exactly. Yeah, I think I'd be with Jacob, there. I think we'll see another layer on top of this. I think [Flynn](https://flynn.io/) -- is that the name? -- is one project that Jeff Lindsay and a bunch of others are working on. There's a bunch of attempts out there. So yeah, I would agree, I think docker's a nice tool at a certain layer but many people -- like application developers who want to get their stuff out there -- will probably be using something else on top of it.
+
+1:10:07 - **Daniel Shaw**: I agree with you but I think we're all in agreement that the primitive below that likely to be docker, and I saw just today that OpehShift is also adopting docker. Silence.
+
+[Laughter]
+
+1:10:28 - **Jacob Groundwater**: Nope. We didn't see that. No comment!
+
+[Laughter]
+
+1:10:31 - **Daniel Shaw**: Sorry for bringing enterprisey things in.
+
+1:10:34 - **Nuno Job**: I'm actually quite interested in -- as Niall said -- docker doesn't really do much. LXC containers is what does most of the things. And they're secure, like Google is using them internally all the time. They're pretty battle-tested. Docker is kind of like git; it gives a git-like command interface.
+
+1:10:59 - **Jacob Groundwater**: Yeah. It feels very similar to using git, and the abstractions are kind of lined up similarly. 
+
+1:11:05 - **Nuno Job**: And right now to use this git of lightweight virtualization you have to use Linux and Linux containers. At Nodejitsu we used SmartOS, and I can tell you that technically it's a brilliant solution. Zones are almost perfect, you've got DTrace, you've got so much cool stuff. So I'm really interested in seeing docker, as Niall said, work in SmartOS too. The same abstraction running across different OSes. I think that could enable a real cloud that is OS-agnostic. At Nodejitsu we just worked our asses off to do that and I'm really excited about that possibility. Finally I'd like to say technically, I don't know if docker is better than zones in anything, possibly not. So there's always this question in my mind, which is "why is it that Solaris is losing?" But the people have spoken: they've chosen Linux. And if people have chosen Linux, docker is the future. 
+
+1:12:07 - **Daniel Shaw**: Cool. Well, we'll wrap it up there. Let's do some quick plugs. Reminder plug from Mike: join Mike at Pearson. There's the Denver area, but Pearson's around the world. They're doing some really great stuff with node.js. So I highly recommend dropping them a note. And DenverJS. Mr. Groundwater, why don't you go ahead?
 
 ## Plugs
 
